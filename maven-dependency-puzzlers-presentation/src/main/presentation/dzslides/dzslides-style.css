@@ -83,6 +83,11 @@ p {
     font-family: monospace;
 }
 
+.codeXml {
+    font-size: 12px;
+    font-family: monospace;
+}
+
 .attribution {
     margin: 5px 0;
     text-align: center;

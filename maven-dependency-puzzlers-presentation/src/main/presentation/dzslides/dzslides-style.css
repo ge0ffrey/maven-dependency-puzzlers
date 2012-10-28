@@ -89,12 +89,16 @@ p {
 
 .codeXml {
     margin: 10px 20px;
+    border: thin solid #BABDB6;
+    padding: 5px 10px;
     font-size: 14px;
     font-family: monospace;
 }
 
 .codeBash {
     margin: 10px 20px;
+    border: thin solid #BABDB6;
+    padding: 5px 10px;
     font-size: 14px;
     font-family: monospace;
 }

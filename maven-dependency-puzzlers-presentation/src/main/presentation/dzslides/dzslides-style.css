@@ -66,6 +66,10 @@ p {
     font-size: 32px;
 }
 
+.callout {
+    text-align: center;
+}
+
 .smaller-p-text {
     font-size: 36px;
 }
@@ -84,7 +88,14 @@ p {
 }
 
 .codeXml {
-    font-size: 12px;
+    margin: 10px 20px;
+    font-size: 14px;
+    font-family: monospace;
+}
+
+.codeBash {
+    margin: 10px 20px;
+    font-size: 14px;
     font-family: monospace;
 }
 

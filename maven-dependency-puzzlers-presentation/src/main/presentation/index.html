@@ -28,13 +28,43 @@
     <!--</section>-->
 
     <section>
-        <h3>Test environment</h3>
-        <p>All questions have been tested with:</p>
+        <p class="callout">Every question is the same:</p>
+        <h2>
+            Which jars end up<br/>
+            in the production classpath<br/>
+            of myproject?
+        </h2>
+    </section>
+
+    <section>
+        <h3>Which jars on the classpath?</h3>
+        <p>After running</p>
+        <pre class="codeBash">
+$mvn assembly:single
+        </pre>
+        <p>on myproject with assembly configuration</p>
+        <pre class="codeXml">
+&lt;assembly&gt;
+
+  ...
+
+  &lt;dependencySets&gt;
+    &lt;dependencySet&gt;
+      &lt;outputDirectory/&gt;
+    &lt;/dependencySet&gt;
+  &lt;/dependencySets&gt;
+
+&lt;/assembly&gt;
+        </pre>
+    </section>
+    <section>
+        <h3>Environment</h3>
         <ul>
             <li>Maven 3.0.4</li>
             <li>OpenJDK 1.7</li>
             <li>Linux</li>
         </ul>
+        <p class="smaller-p-text">(should not matter)</p>
     </section>
 
     <section>
@@ -45,18 +75,19 @@
             </div>
             <div class="rightColumn">
                 <pre class="codeXml">
-  &lt;dependencies&gt;
-      &lt;dependency&gt;
-          &lt;groupId&gt;javassist&lt;/groupId&gt;
-          &lt;artifactId&gt;javassist&lt;/artifactId&gt;
-          &lt;version&gt;3.12.1.GA&lt;/version&gt;
-      &lt;/dependency&gt;
-      &lt;dependency&gt;
-          &lt;groupId&gt;org.javassist&lt;/groupId&gt;
-          &lt;artifactId&gt;javassist&lt;/artifactId&gt;
-          &lt;version&gt;3.16.1-GA&lt;/version&gt;
-      &lt;/dependency&gt;
-  &lt;/dependencies&gt;</pre>
+&lt;dependencies&gt;
+  &lt;dependency&gt;
+    &lt;groupId&gt;javassist&lt;/groupId&gt;
+    &lt;artifactId&gt;javassist&lt;/artifactId&gt;
+    &lt;version&gt;3.12.1.GA&lt;/version&gt;
+  &lt;/dependency&gt;
+  &lt;dependency&gt;
+    &lt;groupId&gt;org.javassist&lt;/groupId&gt;
+    &lt;artifactId&gt;javassist&lt;/artifactId&gt;
+    &lt;version&gt;3.16.1-GA&lt;/version&gt;
+  &lt;/dependency&gt;
+&lt;/dependencies&gt;
+                </pre>
                 <ul>
                     <li>A)</li>
                     <li>B)</li>

@@ -142,11 +142,11 @@ ul {
 }
 
 .answers {
-    font-size: 28px;
+    font-size: 26px;
 }
 
 .correctAnswer {
-    font-style: oblique;
+    font-weight: bold;
 }
 
 ul ul {

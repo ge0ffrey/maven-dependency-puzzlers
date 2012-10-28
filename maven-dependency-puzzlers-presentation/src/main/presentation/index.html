@@ -98,6 +98,37 @@ $ mvn assembly:single</pre>
             </div>
         </div>
     </section>
+    <section class="immediate">
+        <h3>Different groupId's</h3>
+        <div>
+            <div class="leftColumn">
+                <img src="legacyGroupIdDependencyTree.png"/>
+            </div>
+            <div class="rightColumn">
+                <pre class="codeXml">
+&lt;dependencies&gt;
+  &lt;dependency&gt;
+    &lt;groupId&gt;javassist&lt;/groupId&gt;
+    &lt;artifactId&gt;javassist&lt;/artifactId&gt;
+    &lt;version&gt;3.12.1.GA&lt;/version&gt;
+  &lt;/dependency&gt;
+  &lt;dependency&gt;
+    &lt;groupId&gt;org.javassist&lt;/groupId&gt;
+    &lt;artifactId&gt;javassist&lt;/artifactId&gt;
+    &lt;version&gt;3.16.1-GA&lt;/version&gt;
+  &lt;/dependency&gt;
+&lt;/dependencies&gt;</pre>
+                <ul class="answers">
+                    <li>A) javassist-3.12.1.GA.jar</li>
+                    <li>B) javassist-3.16.1-GA.jar</li>
+                    <li class="correctAnswer">C) javassist-3.12.1.GA.jar<br/>
+                        &nbsp;+ javassist-3.16.1-GA.jar</li>
+                    <li>D) neither</li>
+                    <li>E) I don't know</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
     <section>
         <h3>Q & A</h3>

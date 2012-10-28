@@ -87,6 +87,10 @@ p {
     font-family: monospace;
 }
 
+.literal {
+    font-family: monospace;
+}
+
 .codeXml {
     margin: 10px 20px;
     border: thin solid #BABDB6;

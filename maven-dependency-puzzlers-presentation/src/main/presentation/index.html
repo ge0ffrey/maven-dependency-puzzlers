@@ -75,25 +75,41 @@ $ mvn assembly:single</pre>
             </div>
             <div class="rightColumn">
                 <pre class="codeXml">
-&lt;dependencies&gt;
-  &lt;dependency&gt;
-    &lt;groupId&gt;javassist&lt;/groupId&gt;
-    &lt;artifactId&gt;javassist&lt;/artifactId&gt;
-    &lt;version&gt;3.12.1.GA&lt;/version&gt;
-  &lt;/dependency&gt;
-  &lt;dependency&gt;
-    &lt;groupId&gt;org.javassist&lt;/groupId&gt;
-    &lt;artifactId&gt;javassist&lt;/artifactId&gt;
-    &lt;version&gt;3.16.1-GA&lt;/version&gt;
-  &lt;/dependency&gt;
-&lt;/dependencies&gt;</pre>
+&lt;project&gt;
+  &lt;artifactId&gt;myproject&lt;/artifactId&gt;
+  ...
+  &lt;dependencies&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;javassist&lt;/groupId&gt;
+      &lt;artifactId&gt;javassist&lt;/artifactId&gt;
+      &lt;version&gt;3.12.1.GA&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.javassist&lt;/groupId&gt;
+      &lt;artifactId&gt;javassist&lt;/artifactId&gt;
+      &lt;version&gt;3.16.1-GA&lt;/version&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+&lt;/project&gt;</pre>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h3>Different groupId's</h3>
+        <div>
+            <div class="leftColumn">
+                <img src="legacyGroupIdDependencyTree.png"/>
+            </div>
+            <div class="rightColumn">
+                <p class="question">Which jars on the classpath?</p>
                 <ul class="answers">
-                    <li>A) javassist-3.12.1.GA.jar</li>
-                    <li>B) javassist-3.16.1-GA.jar</li>
-                    <li>C) javassist-3.12.1.GA.jar<br/>
-                        &nbsp;+ javassist-3.16.1-GA.jar</li>
-                    <li>D) neither</li>
-                    <li>E) I don't know</li>
+                    <li>javassist-3.12.1.GA.jar</li>
+                    <li>javassist-3.16.1-GA.jar</li>
+                    <li>javassist-3.12.1.GA.jar<br/>
+                        + javassist-3.16.1-GA.jar</li>
+                    <li>neither</li>
+                    <li>Error</li>
+                    <li>I don't know</li>
                 </ul>
             </div>
         </div>
@@ -105,26 +121,100 @@ $ mvn assembly:single</pre>
                 <img src="legacyGroupIdDependencyTree.png"/>
             </div>
             <div class="rightColumn">
-                <pre class="codeXml">
-&lt;dependencies&gt;
-  &lt;dependency&gt;
-    &lt;groupId&gt;javassist&lt;/groupId&gt;
-    &lt;artifactId&gt;javassist&lt;/artifactId&gt;
-    &lt;version&gt;3.12.1.GA&lt;/version&gt;
-  &lt;/dependency&gt;
-  &lt;dependency&gt;
-    &lt;groupId&gt;org.javassist&lt;/groupId&gt;
-    &lt;artifactId&gt;javassist&lt;/artifactId&gt;
-    &lt;version&gt;3.16.1-GA&lt;/version&gt;
-  &lt;/dependency&gt;
-&lt;/dependencies&gt;</pre>
+                <p class="question">Which jars on the classpath?</p>
                 <ul class="answers">
-                    <li>A) javassist-3.12.1.GA.jar</li>
-                    <li>B) javassist-3.16.1-GA.jar</li>
-                    <li class="correctAnswer">C) javassist-3.12.1.GA.jar<br/>
-                        &nbsp;+ javassist-3.16.1-GA.jar</li>
-                    <li>D) neither</li>
-                    <li>E) I don't know</li>
+                    <li>javassist-3.12.1.GA.jar</li>
+                    <li>javassist-3.16.1-GA.jar</li>
+                    <li class="correctAnswer">javassist-3.12.1.GA.jar<br/>
+                        + javassist-3.16.1-GA.jar<br/>
+                        (+3 points)</li>
+                    <li>neither</li>
+                    <li>Error</li>
+                    <li>I don't know<br/>
+                        (+1 point)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h3>Conflicting cousins</h3>
+        <div>
+            <div class="leftColumn">
+                <img src="conflictingCousinsDependencyTree.png"/>
+            </div>
+            <div class="rightColumn">
+                <pre class="codeXml">
+&lt;project&gt;
+  &lt;artifactId&gt;a&lt;/artifactId&gt;...
+  &lt;dependencies&gt;
+    &lt;dependency&gt;...
+      &lt;artifactId&gt;drools-core&lt;/artifactId&gt;
+      &lt;version&gt;5.2.0.Final&lt;/version&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+&lt;/project&gt;
+&lt;project&gt;
+  &lt;artifactId&gt;b&lt;/artifactId&gt;...
+  &lt;dependencies&gt;
+    &lt;dependency&gt;...
+      &lt;artifactId&gt;drools-core&lt;/artifactId&gt;
+      &lt;version&gt;5.4.0.Final&lt;/version&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+&lt;/project&gt;
+&lt;project&gt;
+  &lt;artifactId&gt;myproject&lt;/artifactId&gt;...
+  &lt;dependencies&gt;
+    &lt;dependency&gt;...
+      &lt;artifactId&gt;a&lt;/artifactId&gt;...
+    &lt;/dependency&gt;
+    &lt;dependency&gt;...
+      &lt;artifactId&gt;b&lt;/artifactId&gt;...
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+&lt;/project&gt;</pre>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h3>Conflicting cousins</h3>
+        <div>
+            <div class="leftColumn">
+                <img src="conflictingCousinsDependencyTree.png"/>
+            </div>
+            <div class="rightColumn">
+                <p class="question">Which jars on the classpath?</p>
+                <ul class="answers">
+                    <li>drools-core-5.2.0.Final.jar</li>
+                    <li>drools-core-5.4.0.Final.jar</li>
+                    <li>drools-core-5.2.0.Final.jar<br/>
+                        + drools-core-5.4.0.Final.jar</li>
+                    <li>neither</li>
+                    <li>Error</li>
+                    <li>I don't know</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="immediate">
+        <h3>Conflicting cousins</h3>
+        <div>
+            <div class="leftColumn">
+                <img src="conflictingCousinsDependencyTreeAnswer.png"/>
+            </div>
+            <div class="rightColumn">
+                <p class="question">Which jars on the classpath?</p>
+                <ul class="answers">
+                    <li class="correctAnswer">drools-core-5.2.0.Final.jar<br/>
+                        (+3 points)</li>
+                    <li>drools-core-5.4.0.Final.jar</li>
+                    <li>drools-core-5.2.0.Final.jar<br/>
+                        + drools-core-5.4.0.Final.jar</li>
+                    <li>neither</li>
+                    <li>Error</li>
+                    <li>I don't know<br/>
+                        (+1 point)</li>
                 </ul>
             </div>
         </div>
@@ -133,7 +223,7 @@ $ mvn assembly:single</pre>
     <section>
         <h3>Q & A</h3>
         <ul>
-            <li>Fork this presentation on GitHub
+            <li>Fork this presentation/code on GitHub
                 <ul>
                     <li><a href="http://github.com/ge0ffrey/maven-dependency-puzzlers">http://github.com/ge<b>0</b>ffrey/maven-dependency-puzzlers</a></li>
                 </ul>

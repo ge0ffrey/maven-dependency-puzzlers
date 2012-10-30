@@ -141,8 +141,18 @@ ul {
     font-size: 32px;
 }
 
+.question {
+    font-size: 26px;
+    margin: 10px 0;
+}
+
 .answers {
     font-size: 26px;
+}
+
+.answers li {
+    margin: 5px 0 5px 30px;
+    list-style: upper-alpha ;
 }
 
 .correctAnswer {

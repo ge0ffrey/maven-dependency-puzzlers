@@ -80,12 +80,12 @@ $ mvn assembly:single</pre>
   ...
   &lt;dependencies&gt;
     &lt;dependency&gt;
-      &lt;groupId&gt;javassist&lt;/groupId&gt;
+      <b>&lt;groupId&gt;javassist&lt;/groupId&gt;</b>
       &lt;artifactId&gt;javassist&lt;/artifactId&gt;
       &lt;version&gt;3.12.1.GA&lt;/version&gt;
     &lt;/dependency&gt;
     &lt;dependency&gt;
-      &lt;groupId&gt;org.javassist&lt;/groupId&gt;
+      <b>&lt;groupId&gt;org.javassist&lt;/groupId&gt;</b>
       &lt;artifactId&gt;javassist&lt;/artifactId&gt;
       &lt;version&gt;3.16.1-GA&lt;/version&gt;
     &lt;/dependency&gt;
@@ -108,7 +108,7 @@ $ mvn assembly:single</pre>
                     <li>javassist-3.12.1.GA.jar<br/>
                         + javassist-3.16.1-GA.jar</li>
                     <li>neither</li>
-                    <li>Error</li>
+                    <li>Maven error</li>
                     <li>I don't know</li>
                 </ul>
             </div>
@@ -129,12 +129,73 @@ $ mvn assembly:single</pre>
                         + javassist-3.16.1-GA.jar<br/>
                         (+3 points)</li>
                     <li>neither</li>
-                    <li>Error</li>
+                    <li>Maven error</li>
                     <li>I don't know<br/>
                         (+1 point)</li>
                 </ul>
             </div>
         </div>
+    </section>
+    <section>
+        <h3>Solution for different groupId's</h3>
+        <ul class="incremental">
+            <li>Don't change your groupId's or artifactId's</li>
+            <li>If you do change them,<br/>
+                <b>relocate them in the repository too</b>
+                <ul>
+                    <li>
+                        <pre class="codeXml">
+&lt;project&gt;
+  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+  &lt;groupId&gt;javassist&lt;/groupId&gt;
+  &lt;artifactId&gt;javassist&lt;/artifactId&gt;
+  &lt;version&gt;3.16.1-GA&lt;/version&gt;
+  &lt;distributionManagement&gt;
+    &lt;relocation&gt;
+      &lt;groupId&gt;org.javassist&lt;/groupId&gt;
+    &lt;/relocation&gt;
+  &lt;/distributionManagement&gt;
+&lt;/project&gt;</pre>
+                    </li>
+                    <li style="font-size: smaller;"><a href="http://maven.apache.org/guides/mini/guide-relocation.html">http://maven.apache.org/guides/mini/guide-relocation.html</a></li>
+                </ul>
+            </li>
+        </ul>
+        <p></p>
+    </section>
+    <section>
+        <h3>groupId's of Sun's JAXB implementation</h3>
+        <figure>
+            <img src="changedGroupIdJaxbImplScreenshot.png"/>
+            <p>Don't redistribute other project's artifactId's under your groupId.</p>
+        </figure>
+    </section>
+    <section>
+        <h3>Workaround for different groupId's</h3>
+        <p>Exclude wrong groupId's and artifactId's</p>
+        <pre class="codeXml">
+&lt;dependencies&gt;
+  &lt;dependency&gt;
+    ...
+    <b>&lt;exclusions&gt;
+      &lt;exclusion&gt;
+        &lt;!-- javax.xml is wrong, com.sun.xml.bind is correct --&gt;
+        &lt;groupId&gt;javax.xml&lt;/groupId&gt;
+        &lt;artifactId&gt;jaxb-impl&lt;/artifactId&gt;
+      &lt;/exclusion&gt;
+    &lt;/exclusions&gt;</b>
+  &lt;/dependency&gt;
+  &lt;dependency&gt;
+    &lt;groupId&gt;com.sun.xml.bind&lt;/groupId&gt;
+    &lt;artifactId&gt;jaxb-impl&lt;/artifactId&gt;
+    &lt;version&gt;2.2.6&lt;/version&gt;
+  &lt;/dependency&gt;
+&lt;/dependencies&gt;</pre>
+        <p>When in doubt, prefer the GAV with</p>
+        <ul>
+            <li>the highest version</li>
+            <li>the most recent versions</li>
+        </ul>
     </section>
 
     <section>
@@ -191,7 +252,7 @@ $ mvn assembly:single</pre>
                     <li>drools-core-5.2.0.Final.jar<br/>
                         + drools-core-5.4.0.Final.jar</li>
                     <li>neither</li>
-                    <li>Error</li>
+                    <li>Maven error</li>
                     <li>I don't know</li>
                 </ul>
             </div>
@@ -212,7 +273,7 @@ $ mvn assembly:single</pre>
                     <li>drools-core-5.2.0.Final.jar<br/>
                         + drools-core-5.4.0.Final.jar</li>
                     <li>neither</li>
-                    <li>Error</li>
+                    <li>Maven error</li>
                     <li>I don't know<br/>
                         (+1 point)</li>
                 </ul>

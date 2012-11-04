@@ -41,6 +41,7 @@
 
   <modules>
     <module>legacy-group-id</module>
+    <module>changed-group-id</module>
     <module>version-comparison</module>
   </modules>
 

@@ -385,7 +385,48 @@ $ mvn assembly:single</pre>
             </div>
         </div>
     </section>
-    <!-- TODO answer etc -->
+    <section>
+        <h3>Conflicting nephew</h3>
+        <div>
+            <div class="leftColumn">
+                <img src="conflictingNephewDependencyTree.png"/>
+            </div>
+            <div class="rightColumn">
+                <p class="question">Which jars on the classpath?</p>
+                <ul class="answers">
+                    <li>slf4j-api-1.5.0.jar</li>
+                    <li>slf4j-api-1.7.0.jar</li>
+                    <li>slf4j-api-1.5.0.jar<br/>
+                        + slf4j-api-1.7.0.jar</li>
+                    <li>neither</li>
+                    <li>Maven error</li>
+                    <li>I don't know</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h3>Answer conflicting nephew</h3>
+        <div>
+            <div class="leftColumn">
+                <img src="conflictingNephewDependencyTreeAnswer.png"/>
+            </div>
+            <div class="rightColumn">
+                <p class="question">Which jars on the classpath?</p>
+                <ul class="answers">
+                    <li class="correctAnswer">slf4j-api-1.5.0.jar<br/>
+                        (+3 points)</li>
+                    <li>slf4j-api-1.7.0.jar</li>
+                    <li>slf4j-api-1.5.0.jar<br/>
+                        + slf4j-api-1.7.0.jar</li>
+                    <li>neither</li>
+                    <li>Maven error</li>
+                    <li>I don't know<br/>
+                        (+1 point)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
     <section>
         <h2>

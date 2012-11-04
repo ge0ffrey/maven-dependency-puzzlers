@@ -283,7 +283,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -709,5 +709,19 @@
            x="182.8649"
            y="78.374413"
            style="font-size:7.24244452px;text-align:start;text-anchor:start;fill:#888a85" /></flowRegion><flowPara
-         id="flowPara4030">parent</flowPara></flowRoot>  </g>
+         id="flowPara4030">parent</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3127"
+       style="font-size:12.0707407px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#a40000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       transform="matrix(1.6568991,0,0,1.6568991,-290.39384,882.2087)"><flowRegion
+         id="flowRegion3129"><rect
+           id="rect3131"
+           width="223.30872"
+           height="30.17687"
+           x="187.33418"
+           y="60.446335"
+           style="font-size:12.0707407px;text-align:start;text-anchor:start;fill:#a40000" /></flowRegion><flowPara
+         id="flowPara3133">myproject overwrites</flowPara><flowPara
+         id="flowPara3137">both dependencies</flowPara><flowPara
+         id="flowPara3135">are overwritten</flowPara></flowRoot>  </g>
 </svg>

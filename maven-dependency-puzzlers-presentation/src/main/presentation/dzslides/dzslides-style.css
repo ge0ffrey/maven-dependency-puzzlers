@@ -107,6 +107,14 @@ p {
     font-family: monospace;
 }
 
+.output {
+    margin: 10px 20px;
+    border: thin solid #BABDB6;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-family: monospace;
+}
+
 .attribution {
     margin: 5px 0;
     text-align: center;

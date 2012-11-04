@@ -43,6 +43,7 @@
     <module>legacy-group-id</module>
     <module>changed-group-id</module>
     <module>dependency-inheritance</module>
+    <module>conflicting-nephew</module>
     <module>version-comparison</module>
   </modules>
 

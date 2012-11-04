@@ -354,6 +354,48 @@ $ mvn assembly:single</pre>
         </h2>
     </section>
     <section>
+        <h3>Conflicting nephew</h3>
+        <div>
+            <div class="leftColumn">
+                <img src="conflictingNephewDependencyTree.png"/>
+            </div>
+            <div class="rightColumn">
+                <pre class="codeXml">
+&lt;project&gt;
+  &lt;artifactId&gt;a&lt;/artifactId&gt;...
+  &lt;dependencies&gt;
+    &lt;dependency&gt;...
+      &lt;artifactId&gt;slf4j-api&lt;/artifactId&gt;
+      &lt;version&gt;1.7.0&lt;/version&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+&lt;/project&gt;
+&lt;project&gt;
+  &lt;artifactId&gt;myproject&lt;/artifactId&gt;...
+  &lt;dependencies&gt;
+    &lt;dependency&gt;...
+      &lt;artifactId&gt;a&lt;/artifactId&gt;...
+    &lt;/dependency&gt;
+    &lt;dependency&gt;...
+      &lt;artifactId&gt;slf4j-api&lt;/artifactId&gt;
+      &lt;version&gt;1.5.0&lt;/version&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+&lt;/project&gt;</pre>
+            </div>
+        </div>
+    </section>
+    <!-- TODO answer etc -->
+
+    <section>
+        <h2>
+            <br/>
+            <br/>
+            <br/>
+            Question 4
+        </h2>
+    </section>
+    <section>
         <h3>Conflicting cousins</h3>
         <div>
             <div class="leftColumn">
@@ -441,7 +483,7 @@ $ mvn assembly:single</pre>
             <br/>
             <br/>
             <br/>
-            Question 4
+            Question 5
         </h2>
     </section>
 

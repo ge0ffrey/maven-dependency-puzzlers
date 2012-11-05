@@ -427,6 +427,34 @@ $ mvn assembly:single</pre>
             </div>
         </div>
     </section>
+    <section>
+        <h3>Workaround: Fail fast with enforcer</h3>
+        <p>Enforce that every (transitive) dependency is resolved to it's specified version or higher.</p>
+        <pre class="codeXml">
+&lt;plugin&gt;
+  <b>&lt;artifactId&gt;maven-enforcer-plugin&lt;/artifactId&gt;</b>
+  &lt;executions&gt;
+    &lt;execution&gt;
+      &lt;goals&gt;&lt;goal&gt;enforce&lt;/goal&gt;&lt;/goals&gt;
+      &lt;configuration&gt;
+        &lt;rules&gt;
+          <b>&lt;requireUpperBoundDeps/&gt;</b>
+        &lt;/rules&gt;
+      &lt;/configuration&gt;
+    &lt;/execution&gt;
+  &lt;/executions&gt;
+&lt;/plugin&gt;</pre>
+        <pre class="output">
+Failed while enforcing RequireUpperBoundDeps. The error(s) are [
+Require upper bound dependencies error for org.slf4j:slf4j-api:1.5.0 paths to dependency are:
++-...:myproject:1.0.0
+  +-org.slf4j:slf4j-api:1.5.0
+and
++-...:myproject:1.0.0
+  +-...:a:1.0.0
+    +-org.slf4j:slf4j-api:1.7.0
+]</pre>
+    </section>
 
     <section>
         <h2>
@@ -518,35 +546,6 @@ $ mvn assembly:single</pre>
             </div>
         </div>
     </section>
-    <section>
-        <h3>Workaround requireUpperBoundDeps</h3>
-        <p>Enforce that every (transitive) dependency is resolved to it's specified version or higher.</p>
-        <pre class="codeXml">
-&lt;plugin&gt;
-  <b>&lt;artifactId&gt;maven-enforcer-plugin&lt;/artifactId&gt;</b>
-  &lt;executions&gt;
-    &lt;execution&gt;
-      &lt;goals&gt;&lt;goal&gt;enforce&lt;/goal&gt;&lt;/goals&gt;
-      &lt;configuration&gt;
-        &lt;rules&gt;
-          <b>&lt;requireUpperBoundDeps/&gt;</b>
-        &lt;/rules&gt;
-      &lt;/configuration&gt;
-    &lt;/execution&gt;
-  &lt;/executions&gt;
-&lt;/plugin&gt;</pre>
-        <pre class="output">
-[WARNING] Rule 0: org.apache.maven.plugins.enforcer.RequireUpperBoundDeps failed with message:
-Failed while enforcing RequireUpperBoundDeps. The error(s) are [
-Require upper bound dependencies error for org.slf4j:slf4j-api:1.5.0 paths to dependency are:
-+-...:myproject:1.0.0
-  +-org.slf4j:slf4j-api:1.5.0
-and
-+-...:myproject:1.0.0
-  +-...:a:1.0.0
-    +-org.slf4j:slf4j-api:1.7.0
-]</pre>
-    </section>
 
     <section>
         <h2>
@@ -555,6 +554,107 @@ and
             <br/>
             Question 5
         </h2>
+    </section>
+    <section>
+        <h3>Child with dependencyManagement</h3>
+        <div>
+            <div class="leftColumn">
+                <img src="childWithDependencyManagementDependencyTree.png"/>
+            </div>
+            <div class="rightColumn">
+                <pre class="codeXml" style="font-size: 11px;">
+&lt;project&gt;
+  &lt;artifactId&gt;a&lt;/artifactId&gt;...
+  &lt;dependencies&gt;
+    &lt;dependency&gt;...
+      &lt;artifactId&gt;jbpm-flow&lt;/artifactId&gt;
+      &lt;version&gt;5.1.0.Final&lt;/version&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+&lt;/project&gt;
+&lt;project&gt;
+  &lt;artifactId&gt;yourparent&lt;/artifactId&gt;...
+  &lt;dependencyManagement&gt;&lt;dependencies&gt;
+    &lt;dependency&gt;...
+      &lt;artifactId&gt;jbpm-flow&lt;/artifactId&gt;
+      &lt;version&gt;5.3.0.Final&lt;/version&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;&lt;/dependencyManagement&gt;
+&lt;/project&gt;
+&lt;project&gt;
+  &lt;parent&gt;...
+    &lt;artifactId&gt;yourparent&lt;/artifactId&gt;...
+  &lt;/parent&gt;
+  &lt;artifactId&gt;yourproject&lt;/artifactId&gt;...
+  &lt;dependencies&gt;
+    &lt;dependency&gt;...
+      &lt;artifactId&gt;a&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+&lt;/project&gt;
+&lt;project&gt;
+  &lt;artifactId&gt;myproject&lt;/artifactId&gt;...
+  &lt;dependencies&gt;
+    &lt;dependency&gt;...
+      &lt;artifactId&gt;yourproject&lt;/artifactId&gt;...
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+&lt;/project&gt;</pre>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h3>Child with dependencyManagement</h3>
+        <div>
+            <div class="leftColumn">
+                <img src="childWithDependencyManagementDependencyTree.png"/>
+            </div>
+            <div class="rightColumn">
+                <p class="question">Which jars on the classpath?</p>
+                <ul class="answers">
+                    <li>jbpm-flow-5.1.0.Final.jar</li>
+                    <li>jbpm-flow-5.3.0.Final.jar</li>
+                    <li>jbpm-flow-5.1.0.Final.jar<br/>
+                        + jbpm-flow-5.3.0.Final.jar</li>
+                    <li>neither</li>
+                    <li>Maven error</li>
+                    <li>I don't know</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h3>Child with dependencyManagement</h3>
+        <div>
+            <div class="leftColumn">
+                <img src="childWithDependencyManagementDependencyTreeAnswer.png"/>
+            </div>
+            <div class="rightColumn">
+                <p class="question">Which jars on the classpath?</p>
+                <ul class="answers">
+                    <li class="correctAnswer">jbpm-flow-5.1.0.Final.jar<br/>
+                        (+3 points)</li>
+                    <li>jbpm-flow-5.3.0.Final.jar</li>
+                    <li>jbpm-flow-5.1.0.Final.jar<br/>
+                        + jbpm-flow-5.3.0.Final.jar</li>
+                    <li>neither</li>
+                    <li>Maven error</li>
+                    <li>I don't know<br/>
+                        (+1 point)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h3>myproject versus yourproject</h3>
+        <h4>Bug?</h4>
+        <figure>
+            <img src="childWithDependencyManagementAssemblyScreenshot.png"/>
+            <p>
+                myproject depends on yourproject<br/>
+                but ends up with a different jbpm-flow version
+            </p>
+        </figure>
     </section>
 
     <section>

@@ -45,6 +45,8 @@
     <module>dependency-inheritance</module>
     <module>conflicting-nephew</module>
     <module>version-comparison</module>
+    <module>child-with-dependencyManagement</module>
+    <module>maven-dependency-puzzlers-presentation</module>
   </modules>
 
   <build>

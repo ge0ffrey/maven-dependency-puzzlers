@@ -44,6 +44,7 @@
     <module>changed-group-id</module>
     <module>dependency-inheritance</module>
     <module>conflicting-nephew</module>
+    <module>conflicting-cousins</module>
     <module>version-comparison</module>
     <module>child-with-dependencyManagement</module>
     <module>maven-dependency-puzzlers-presentation</module>

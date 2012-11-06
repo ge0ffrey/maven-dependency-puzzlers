@@ -5,23 +5,28 @@
 
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.ge0ffrey.maven-dependency-puzzlers.conflicting-nephew</groupId>
-    <artifactId>conflicting-nephew</artifactId>
+    <groupId>org.ge0ffrey.maven-dependency-puzzlers.conflicting-cousins</groupId>
+    <artifactId>conflicting-cousins</artifactId>
     <version>1.0.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>conflicting-nephew-myproject</artifactId>
+  <artifactId>myproject</artifactId>
 
   <dependencies>
     <dependency>
-      <groupId>org.ge0ffrey.maven-dependency-puzzlers.conflicting-nephew</groupId>
-      <artifactId>conflicting-nephew-mynephew</artifactId>
+      <groupId>org.ge0ffrey.maven-dependency-puzzlers.conflicting-cousins</groupId>
+      <artifactId>a</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-      <version>1.5.0</version>
+      <groupId>org.ge0ffrey.maven-dependency-puzzlers.conflicting-cousins</groupId>
+      <artifactId>b</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.ge0ffrey.maven-dependency-puzzlers.conflicting-cousins</groupId>
+      <artifactId>c</artifactId>
+      <version>${project.version}</version>
     </dependency>
   </dependencies>
 

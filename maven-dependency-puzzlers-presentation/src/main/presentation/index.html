@@ -471,9 +471,24 @@ and
                 <img src="conflictingCousinsDependencyTree.png"/>
             </div>
             <div class="rightColumn">
-                <pre class="codeXml">
-&lt;project&gt;
-  &lt;artifactId&gt;a&lt;/artifactId&gt;...
+                <pre class="codeXml" style="font-size: 12px;">
+&lt;project&gt;...&lt;artifactId&gt;a&lt;/&gt;...
+  &lt;dependencies&gt;
+    &lt;dependency&gt;...
+      &lt;artifactId&gt;drools-core&lt;/artifactId&gt;
+      &lt;version&gt;5.2.0.CR1&lt;/version&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+&lt;/project&gt;
+&lt;project&gt;...&lt;artifactId&gt;b&lt;/&gt;...
+  &lt;dependencies&gt;
+    &lt;dependency&gt;...
+      &lt;artifactId&gt;drools-core&lt;/artifactId&gt;
+      &lt;version&gt;5.2.0.M2&lt;/version&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+&lt;/project&gt;
+&lt;project&gt;...&lt;artifactId&gt;c&lt;/&gt;...
   &lt;dependencies&gt;
     &lt;dependency&gt;...
       &lt;artifactId&gt;drools-core&lt;/artifactId&gt;
@@ -481,24 +496,11 @@ and
     &lt;/dependency&gt;
   &lt;/dependencies&gt;
 &lt;/project&gt;
-&lt;project&gt;
-  &lt;artifactId&gt;b&lt;/artifactId&gt;...
+&lt;project&gt;...&lt;artifactId&gt;myproject&lt;/&gt;...
   &lt;dependencies&gt;
-    &lt;dependency&gt;...
-      &lt;artifactId&gt;drools-core&lt;/artifactId&gt;
-      &lt;version&gt;5.4.0.Final&lt;/version&gt;
-    &lt;/dependency&gt;
-  &lt;/dependencies&gt;
-&lt;/project&gt;
-&lt;project&gt;
-  &lt;artifactId&gt;myproject&lt;/artifactId&gt;...
-  &lt;dependencies&gt;
-    &lt;dependency&gt;...
-      &lt;artifactId&gt;a&lt;/artifactId&gt;...
-    &lt;/dependency&gt;
-    &lt;dependency&gt;...
-      &lt;artifactId&gt;b&lt;/artifactId&gt;...
-    &lt;/dependency&gt;
+    &lt;dependency&gt;...&lt;artifactId&gt;a&lt;/&gt;...&lt;/&gt;
+    &lt;dependency&gt;...&lt;artifactId&gt;b&lt;/&gt;...&lt;/&gt;
+    &lt;dependency&gt;...&lt;artifactId&gt;c&lt;/&gt;...&lt;/&gt;
   &lt;/dependencies&gt;
 &lt;/project&gt;</pre>
             </div>
@@ -513,10 +515,12 @@ and
             <div class="rightColumn">
                 <p class="question">Which jars on the classpath?</p>
                 <ul class="answers">
+                    <li>drools-core-5.2.0.CR1.jar</li>
+                    <li>drools-core-5.2.0.M2.jar</li>
                     <li>drools-core-5.2.0.Final.jar</li>
-                    <li>drools-core-5.4.0.Final.jar</li>
-                    <li>drools-core-5.2.0.Final.jar<br/>
-                        + drools-core-5.4.0.Final.jar</li>
+                    <li>drools-core-5.2.0.CR1.jar<br/>
+                        + drools-core-5.2.0.M2.jar<br/>
+                        + drools-core-5.2.0.Final.jar</li>
                     <li>neither</li>
                     <li>Maven error</li>
                     <li>I don't know</li>
@@ -533,18 +537,75 @@ and
             <div class="rightColumn">
                 <p class="question">Which jars on the classpath?</p>
                 <ul class="answers">
-                    <li class="correctAnswer">drools-core-5.2.0.Final.jar<br/>
+                    <li class="correctAnswer">drools-core-5.2.0.CR1.jar<br/>
                         (+3 points)</li>
-                    <li>drools-core-5.4.0.Final.jar</li>
-                    <li>drools-core-5.2.0.Final.jar<br/>
-                        + drools-core-5.4.0.Final.jar</li>
+                    <li>drools-core-5.2.0.M2.jar</li>
+                    <li>drools-core-5.2.0.Final.jar</li>
+                    <li>drools-core-5.2.0.CR1.jar<br/>
+                        + drools-core-5.2.0.M2.jar<br/>
+                        + drools-core-5.2.0.Final.jar</li>
                     <li>neither</li>
                     <li>Maven error</li>
                     <li>I don't know<br/>
                         (+1 point)</li>
                 </ul>
+                <p class="smaller-p-text">
+                    Later releases (5.3, 5.4, 5.5, ...)<br/>
+                    no longer use M in version numbering.
+                </p>
             </div>
         </div>
+    </section>
+    <section>
+        <h3>Solution conflicting cousins</h3>
+        <ul>
+            <li>Use lexicographically friendly version numbering
+                <ul>
+                    <li>a &lt; b</li>
+                    <li>a &lt; 1</li>
+                    <li>1 &lt; 2</li>
+                    <li>1 &lt; 10</li>
+                </ul>
+            </li>
+            <li>For example: JBoss version guidelines
+                <ul>
+                    <li>major.minor.micro.Alpha[n]</li>
+                    <li>major.minor.micro.Beta[n]</li>
+                    <li>major.minor.micro.CR[n]</li>
+                    <li>major.minor.micro.Final</li>
+                    <li><a href="https://community.jboss.org/wiki/JBossProjectVersioning">https://community.jboss.org/wiki/JBossProjectVersioning</a></li>
+                </ul>
+            </li>
+            <li>Use enforcer rule requireUpperBoundDeps
+                <ul>
+                    <li>Compares versions lexicographically</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+    <section>
+        <h3>1 thing I don't like about Maven</h3>
+        <ul class="incremental">
+            <li><i>"Many projects do not follow lexicographically versioning."</i></li>
+            <li>
+                So when Maven detects a conflict,<br/>
+                it just picks <i>the nearest</i> (= highest level, first index).
+            </li>
+            <li><i>Comparing financial stocks is hard</br>
+                so I'll just invest in the first one in the list.</i></li>
+            <li style="list-style:none;"><figure><img src="wat.jpeg" height="200px"/></figure></li>
+        </ul>
+    </section>
+    <section>
+        <h3>How do we resolve most conflicts?</h3>
+        <ul>
+            <li>Popular projects: most are backwards compatible</li>
+            <li>2 conflicting jars in 1 classpath = trouble</li>
+            <li>
+                Common sense solution:<br/>
+                <b>Retain the highest version</b>
+            </li>
+        </ul>
     </section>
 
     <section>
@@ -562,9 +623,8 @@ and
                 <img src="childWithDependencyManagementDependencyTree.png"/>
             </div>
             <div class="rightColumn">
-                <pre class="codeXml" style="font-size: 11px;">
-&lt;project&gt;
-  &lt;artifactId&gt;a&lt;/artifactId&gt;...
+                <pre class="codeXml" style="font-size: 12px;">
+&lt;project&gt;...&lt;artifactId&gt;a&lt;/&gt;...
   &lt;dependencies&gt;
     &lt;dependency&gt;...
       &lt;artifactId&gt;jbpm-flow&lt;/artifactId&gt;
@@ -572,8 +632,7 @@ and
     &lt;/dependency&gt;
   &lt;/dependencies&gt;
 &lt;/project&gt;
-&lt;project&gt;
-  &lt;artifactId&gt;yourparent&lt;/artifactId&gt;...
+&lt;project&gt;...&lt;artifactId&gt;yourparent&lt;/&gt;...
   &lt;dependencyManagement&gt;&lt;dependencies&gt;
     &lt;dependency&gt;...
       &lt;artifactId&gt;jbpm-flow&lt;/artifactId&gt;
@@ -581,19 +640,15 @@ and
     &lt;/dependency&gt;
   &lt;/dependencies&gt;&lt;/dependencyManagement&gt;
 &lt;/project&gt;
-&lt;project&gt;
-  &lt;parent&gt;...
-    &lt;artifactId&gt;yourparent&lt;/artifactId&gt;...
-  &lt;/parent&gt;
-  &lt;artifactId&gt;yourproject&lt;/artifactId&gt;...
+&lt;project&gt;...&lt;artifactId&gt;yourproject&lt;/&gt;...
+  &lt;parent&gt;...&lt;artifactId&gt;yourparent&lt;/&gt;...&lt;/parent&gt;
   &lt;dependencies&gt;
     &lt;dependency&gt;...
       &lt;artifactId&gt;a&lt;/artifactId&gt;
     &lt;/dependency&gt;
   &lt;/dependencies&gt;
 &lt;/project&gt;
-&lt;project&gt;
-  &lt;artifactId&gt;myproject&lt;/artifactId&gt;...
+&lt;project&gt;...&lt;artifactId&gt;myproject&lt;/&gt;...
   &lt;dependencies&gt;
     &lt;dependency&gt;...
       &lt;artifactId&gt;yourproject&lt;/artifactId&gt;...
@@ -647,7 +702,6 @@ and
     </section>
     <section>
         <h3>myproject versus yourproject</h3>
-        <h4>Bug?</h4>
         <figure>
             <img src="childWithDependencyManagementAssemblyScreenshot.png"/>
             <p>

@@ -557,14 +557,15 @@ and
         </div>
     </section>
     <section>
-        <h3>Solution conflicting cousins</h3>
+        <h3>Workaround conflicting cousins</h3>
         <ul>
             <li>Use lexicographically friendly version numbering
                 <ul>
-                    <li>a &lt; b</li>
-                    <li>a &lt; 1</li>
-                    <li>1 &lt; 2</li>
-                    <li>1 &lt; 10</li>
+                    <li>Tokenize on dots (.), then dashes (-)</li>
+                    <li>Letters are smaller than numbers: a &lt; 1</li>
+                    <li>Sequential ciphers from a number: 2 &lt; 10</li>
+                    <li>1.0.0.Beta3 &lt; 1.0.0.Beta11 &lt; 1.0.0.CR2<br/>
+                        &lt; 1.0.0.Final &lt; 1.0.1.Beta1</li>
                 </ul>
             </li>
             <li>For example: JBoss version guidelines
@@ -588,23 +589,28 @@ and
         <ul class="incremental">
             <li><i>"Many projects do not follow lexicographically versioning."</i></li>
             <li>
-                So when Maven detects a conflict,<br/>
-                it just picks <i>the nearest</i> (= highest level, first index).
+                When Maven detects a conflict,<br/>
+                it just picks <i>the nearest</i><br/>
+                (= highest level, first index)
             </li>
-            <li><i>Comparing financial stocks is hard</br>
-                so I'll just invest in the first one in the list.</i></li>
+            <li><i>"Comparing financial stocks is hard</br>
+                so I'll just buy the first one in the list."</i></li>
             <li style="list-style:none;"><figure><img src="wat.jpeg" height="200px"/></figure></li>
         </ul>
     </section>
     <section>
-        <h3>How do we resolve most conflicts?</h3>
+        <h3>Conflict resolution in practice ...</h3>
         <ul>
-            <li>Popular projects: most are backwards compatible</li>
+            <li>Most popular projects are backwards compatible</li>
             <li>2 conflicting jars in 1 classpath = trouble</li>
-            <li>
-                Common sense solution:<br/>
-                <b>Retain the highest version</b>
-            </li>
+        </ul>
+        <p>
+            Common sense solution:<br/>
+            <b>Retain the highest version</b><br/>
+            (lexicographic comparison)</b>
+        </p>
+        <ul class="incremental">
+            <li>So why doesn't maven do this?</li>
         </ul>
     </section>
 
@@ -709,6 +715,110 @@ and
                 but ends up with a different jbpm-flow version
             </p>
         </figure>
+    </section>
+
+    <section>
+        <h2>
+            <br/>
+            <br/>
+            <br/>
+            Question 6
+        </h2>
+    </section>
+    <section>
+        <h3>Shading</h3>
+        <div>
+            <div class="leftColumn">
+                <img src="shadingDependencyTree.png"/>
+            </div>
+            <div class="rightColumn">
+                <pre class="codeXml">
+&lt;project&gt;
+  &lt;artifactId&gt;myproject&lt;/artifactId&gt;
+  ...
+  &lt;dependencies&gt;
+    &lt;dependency&gt;
+      &lt;-- Depends on:
+          slf4j-api 1.6.1
+          ... --&gt;
+      &lt;groupId&gt;org.jboss.weld.se&lt;/groupId&gt;
+      <b>&lt;artifactId&gt;weld-se-core&lt;/artifactId&gt;</b>
+      &lt;version&gt;1.1.8.Final&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;-- Shades:
+          weld-se-core 1.1.4.Final
+          slf4j-api 1.5.10
+          ... --&gt;
+      &lt;groupId&gt;org.jboss.weld.se&lt;/groupId&gt;
+      <b>&lt;artifactId&gt;weld-se&lt;/artifactId&gt;</b>
+      &lt;version&gt;1.1.4.Final&lt;/version&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+&lt;/project&gt;</pre>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h3>Shading</h3>
+        <div>
+            <div class="leftColumn">
+                <img src="shadingDependencyTree.png"/>
+            </div>
+            <div class="rightColumn">
+                <p class="question">Which jars on the classpath?</p>
+                <ul class="answers">
+                    <li>weld-se-core-1.1.8.Final.jar<br/>
+                        + slf4j-api-1.6.1.jar</li>
+                    <li>weld-se-1.1.4.Final.jar</li>
+                    <li>weld-se-core-1.1.8.Final.jar<br/>
+                        + slf4j-api-1.6.1.jar<br/>
+                        + weld-se-1.1.4.Final.jar</li>
+                    <li>Maven error</li>
+                    <li>I don't know</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h3>Answer shading</h3>
+        <div>
+            <div class="leftColumn">
+                <img src="shadingDependencyTree.png"/>
+            </div>
+            <div class="rightColumn">
+                <p class="question">Which jars on the classpath?</p>
+                <ul class="answers">
+                    <li>weld-se-core-1.1.8.Final.jar<br/>
+                        + slf4j-api-1.6.1.jar</li>
+                    <li>weld-se-1.1.4.Final.jar</li>
+                    <li class="correctAnswer">weld-se-core-1.1.8.Final.jar<br/>
+                        + slf4j-api-1.6.1.jar<br/>
+                        + weld-se-1.1.4.Final.jar<br/>
+                        (+3 points)</li>
+                    <li>Maven error</li>
+                    <li>I don't know<br/>
+                        (+1 point)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h3>Solution shading</h3>
+        <p>Don't depend on shaded jars.</p>
+                <pre class="codeXml">
+&lt;project&gt;
+  &lt;artifactId&gt;myproject&lt;/artifactId&gt;
+  ...
+  &lt;dependencies&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.jboss.weld.se&lt;/groupId&gt;
+      &lt;-- &lt;artifactId&gt;weld-se&lt;/artifactId&gt; is evil --&gt;
+      <b>&lt;artifactId&gt;weld-se-core&lt;/artifactId&gt;</b>
+      &lt;version&gt;1.1.8.Final&lt;/version&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+&lt;/project&gt;</pre>
     </section>
 
     <section>

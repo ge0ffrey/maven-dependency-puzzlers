@@ -844,7 +844,33 @@ and
     &lt;/dependency&gt;
   &lt;/dependencies&gt;
 &lt;/project&gt;</pre>
-        <p>Exception: shaded fat jars are maybe acceptable</p>
+    </section>
+    <section>
+        <h3>Shaded fat jars</h3>
+        <div>
+            <div class="leftColumn">
+                <img src="shadedFatJarDependencyTreeProblem.png"/>
+            </div>
+            <div class="rightColumn">
+                <ul>
+                    <li>Shading
+                        <ul>
+                            <li>
+                                Prefixes all classes<br/>
+                                with namespace
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Bad solution
+                        <ul>
+                            <li>Does not fix problem</li>
+                            <li>Extra problems</li>
+                        </ul>
+                    </li>
+                    <li>Don't use shaded jars</li>
+                </ul>
+            </div>
+        </div>
     </section>
 
     <section>

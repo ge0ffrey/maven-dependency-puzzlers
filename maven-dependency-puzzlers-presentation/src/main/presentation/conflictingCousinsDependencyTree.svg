@@ -256,7 +256,7 @@
      gridtolerance="10"
      inkscape:window-width="1680"
      inkscape:window-height="991"
-     inkscape:window-x="1680"
+     inkscape:window-x="0"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
      inkscape:snap-grids="true"
@@ -621,10 +621,10 @@
            width="66.389084"
            id="rect3225" /></flowRegion><flowPara
          id="flowPara3227">1.0.0</flowPara></flowRoot>    <path
-       sodipodi:nodetypes="ccc"
+       sodipodi:nodetypes="cc"
        inkscape:connector-curvature="0"
        id="path3102"
-       d="m 60,777.36216 c -20,0 -20,-124.99998 -20,-164.99998 0,280 0,285 20,285"
+       d="m 40,612.36218 c 0,280 0,285 20,285"
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"

@@ -37,12 +37,37 @@
     </section>
 
     <section>
+        <h3>Count your points</h3>
+        <div>
+            <div class="leftColumn">
+                <img src="Delirium_Tremens.jpg" style="float: left;" height="450px">
+            </div>
+            <div class="rightColumn">
+                <ul>
+                    <li>Your answer is ...
+                        <ul>
+                            <li>correct: +3 points</li>
+                            <li>I don't know: +1 point</li>
+                            <li>wrong: +0 points</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Most points:<br/>
+                        Chance to win<br/>
+                        1 bottle of beer
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section>
         <h3>Which jars on the classpath?</h3>
         <p>After running</p>
         <pre class="codeBash">
 $ mvn assembly:single</pre>
         <p>
-            on <span class="literal">myproject</span><br/>
+            on <span class="literal">myproject</span>'s pom.xml<br/>
             with assembly configuration
         </p>
         <pre class="codeXml">
@@ -726,10 +751,10 @@ and
         </h2>
     </section>
     <section>
-        <h3>Shading</h3>
+        <h3>Fat jars</h3>
         <div>
             <div class="leftColumn">
-                <img src="shadingDependencyTree.png"/>
+                <img src="fatJarDependencyTree.png"/>
             </div>
             <div class="rightColumn">
                 <pre class="codeXml">
@@ -746,7 +771,7 @@ and
       &lt;version&gt;1.1.8.Final&lt;/version&gt;
     &lt;/dependency&gt;
     &lt;dependency&gt;
-      &lt;-- Shades:
+      &lt;-- Duplicates:
           weld-se-core 1.1.4.Final
           slf4j-api 1.5.10
           ... --&gt;
@@ -760,10 +785,10 @@ and
         </div>
     </section>
     <section>
-        <h3>Shading</h3>
+        <h3>Fat jars</h3>
         <div>
             <div class="leftColumn">
-                <img src="shadingDependencyTree.png"/>
+                <img src="fatJarDependencyTree.png"/>
             </div>
             <div class="rightColumn">
                 <p class="question">Which jars on the classpath?</p>
@@ -781,10 +806,10 @@ and
         </div>
     </section>
     <section>
-        <h3>Answer shading</h3>
+        <h3>Answer fat jars</h3>
         <div>
             <div class="leftColumn">
-                <img src="shadingDependencyTree.png"/>
+                <img src="fatJarDependencyTree.png"/>
             </div>
             <div class="rightColumn">
                 <p class="question">Which jars on the classpath?</p>
@@ -804,8 +829,8 @@ and
         </div>
     </section>
     <section>
-        <h3>Solution shading</h3>
-        <p>Don't depend on shaded jars.</p>
+        <h3>Solution fat jars</h3>
+        <p>Don't depend on fat jars.</p>
                 <pre class="codeXml">
 &lt;project&gt;
   &lt;artifactId&gt;myproject&lt;/artifactId&gt;
@@ -819,6 +844,30 @@ and
     &lt;/dependency&gt;
   &lt;/dependencies&gt;
 &lt;/project&gt;</pre>
+        <p>Exception: shaded fat jars are maybe acceptable</p>
+    </section>
+
+    <section>
+        <h3>And the winner is ...</h3>
+        <ul class="incremental">
+            <li>Raise your hand if you have most points
+                <ul>
+                    <li>You might be a winner</li>
+                </ul>
+            </li>
+            <li>What your seat number?<br/>
+                Look behind your right shoulder
+                <figure>
+                    <img src="winningSeat.png" height="200px"/>
+                </figure>
+            </li>
+            <li>Winner = highest points + <b>seat 12</b><br/>
+                (+ less than 3 winners in front of you)
+                <ul>
+                    <li>None in seat 12 => Try seat 13, 14, ...</li>
+                </ul>
+            </li>
+        </ul>
     </section>
 
     <section>

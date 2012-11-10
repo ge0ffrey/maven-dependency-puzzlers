@@ -13,7 +13,6 @@
   <artifactId>maven-dependency-puzzlers-presentation</artifactId>
   <packaging>pom</packaging>
 
-
   <build>
     <plugins>
       <plugin>

@@ -290,14 +290,14 @@ $ mvn assembly:single</pre>
             <div class="rightColumn">
                 <p class="question">Which jars on the classpath?</p>
                 <ul class="answers">
-                    <li>commons-lang-2.3.jar<br/>
-                        + commons-io-2.3.jar</li>
-                    <li>commons-lang-2.3.jar<br/>
-                        + commons-io-2.4.jar</li>
-                    <li>commons-lang-2.4.jar<br/>
-                        + commons-io-2.3.jar</li>
-                    <li>commons-lang-2.4.jar<br/>
-                        + commons-io-2.4.jar</li>
+                    <li>lang-2.3 <span class="lighterInfo">(myproject dep)</span><br/>
+                        + io-2.3 <span class="lighterInfo">(myproject dep)</span></li>
+                    <li>lang-2.3 <span class="lighterInfo">(myproject dep)</span><br/>
+                        + io-2.4 <span class="lighterInfo">(parent dep)</span></li>
+                    <li>lang-2.4 <span class="lighterInfo">(parent depMan)</span><br/>
+                        + io-2.3 <span class="lighterInfo">(myproject dep)</span></li>
+                    <li>lang-2.4 <span class="lighterInfo">(parent depMan)</span><br/>
+                        + io-2.4 <span class="lighterInfo">(parent dep)</span></li>
                     <li>Maven error</li>
                     <li>I don't know</li>
                 </ul>
@@ -313,15 +313,15 @@ $ mvn assembly:single</pre>
             <div class="rightColumn">
                 <p class="question">Which jars on the classpath?</p>
                 <ul class="answers">
-                    <li class="correctAnswer">commons-lang-2.3.jar<br/>
-                        + commons-io-2.3.jar<br/>
+                    <li class="correctAnswer">lang-2.3 <span class="lighterInfo">(myproject dep)</span><br/>
+                        + io-2.3 <span class="lighterInfo">(myproject dep)</span><br/>
                         (+3 points)</li>
-                    <li>commons-lang-2.3.jar<br/>
-                        + commons-io-2.4.jar</li>
-                    <li>commons-lang-2.4.jar<br/>
-                        + commons-io-2.3.jar</li>
-                    <li>commons-lang-2.4.jar<br/>
-                        + commons-io-2.4.jar</li>
+                    <li>lang-2.3 <span class="lighterInfo">(myproject dep)</span><br/>
+                        + io-2.4 <span class="lighterInfo">(parent dep)</span></li>
+                    <li>lang-2.4 <span class="lighterInfo">(parent depMan)</span><br/>
+                        + io-2.3 <span class="lighterInfo">(myproject dep)</span></li>
+                    <li>lang-2.4 <span class="lighterInfo">(parent depMan)</span><br/>
+                        + io-2.4 <span class="lighterInfo">(parent dep)</span></li>
                     <li>Maven error</li>
                     <li>I don't know<br/>
                         (+1 point)</li>
@@ -546,7 +546,6 @@ and
                     <li>drools-core-5.2.0.CR1.jar<br/>
                         + drools-core-5.2.0.M2.jar<br/>
                         + drools-core-5.2.0.Final.jar</li>
-                    <li>neither</li>
                     <li>Maven error</li>
                     <li>I don't know</li>
                 </ul>
@@ -569,7 +568,6 @@ and
                     <li>drools-core-5.2.0.CR1.jar<br/>
                         + drools-core-5.2.0.M2.jar<br/>
                         + drools-core-5.2.0.Final.jar</li>
-                    <li>neither</li>
                     <li>Maven error</li>
                     <li>I don't know<br/>
                         (+1 point)</li>
@@ -702,7 +700,6 @@ and
                     <li>jbpm-flow-5.3.0.Final.jar</li>
                     <li>jbpm-flow-5.1.0.Final.jar<br/>
                         + jbpm-flow-5.3.0.Final.jar</li>
-                    <li>neither</li>
                     <li>Maven error</li>
                     <li>I don't know</li>
                 </ul>
@@ -723,7 +720,6 @@ and
                     <li>jbpm-flow-5.3.0.Final.jar</li>
                     <li>jbpm-flow-5.1.0.Final.jar<br/>
                         + jbpm-flow-5.3.0.Final.jar</li>
-                    <li>neither</li>
                     <li>Maven error</li>
                     <li>I don't know<br/>
                         (+1 point)</li>

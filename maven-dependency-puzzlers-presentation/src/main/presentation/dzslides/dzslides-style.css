@@ -91,6 +91,11 @@ p {
     font-family: monospace;
 }
 
+.lighterInfo {
+    color: #555753;
+    font-size: smaller;
+}
+
 .codeXml {
     margin: 10px 20px;
     border: thin solid #BABDB6;

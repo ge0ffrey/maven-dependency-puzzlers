@@ -292,14 +292,14 @@ $ mvn assembly:single</pre>
             <div class="rightColumn">
                 <p class="question">Which jars on the classpath?</p>
                 <ul class="answers">
-                    <li>lang-2.3 <span class="lighterInfo">(myproject dep)</span><br/>
-                        + io-2.3 <span class="lighterInfo">(myproject dep)</span></li>
-                    <li>lang-2.3 <span class="lighterInfo">(myproject dep)</span><br/>
-                        + io-2.4 <span class="lighterInfo">(parent dep)</span></li>
-                    <li>lang-2.4 <span class="lighterInfo">(parent depMan)</span><br/>
-                        + io-2.3 <span class="lighterInfo">(myproject dep)</span></li>
-                    <li>lang-2.4 <span class="lighterInfo">(parent depMan)</span><br/>
-                        + io-2.4 <span class="lighterInfo">(parent dep)</span></li>
+                    <li><span class="noise">...-</span>lang-2.3<span class="noise">.jar</span> <span class="lighterInfo">(my dep)</span><br/>
+                        + <span class="noise">...-</span>io-2.3<span class="noise">.jar</span> <span class="lighterInfo">(my dep)</span></li>
+                    <li><span class="noise">...-</span>lang-2.3<span class="noise">.jar</span> <span class="lighterInfo">(my dep)</span><br/>
+                        + <span class="noise">...-</span>io-2.4<span class="noise">.jar</span> <span class="lighterInfo">(parent dep)</span></li>
+                    <li><span class="noise">...-</span>lang-2.4<span class="noise">.jar</span> <span class="lighterInfo">(parent depMan)</span><br/>
+                        + <span class="noise">...-</span>io-2.3<span class="noise">.jar</span> <span class="lighterInfo">(my dep)</span></li>
+                    <li><span class="noise">...-</span>lang-2.4<span class="noise">.jar</span> <span class="lighterInfo">(parent depMan)</span><br/>
+                        + <span class="noise">...-</span>io-2.4<span class="noise">.jar</span> <span class="lighterInfo">(parent dep)</span></li>
                     <li>Maven error</li>
                     <li>I don't know</li>
                 </ul>
@@ -315,15 +315,15 @@ $ mvn assembly:single</pre>
             <div class="rightColumn">
                 <p class="question">Which jars on the classpath?</p>
                 <ul class="answers">
-                    <li class="correctAnswer">lang-2.3 <span class="lighterInfo">(myproject dep)</span><br/>
-                        + io-2.3 <span class="lighterInfo">(myproject dep)</span><br/>
+                    <li class="correctAnswer"><span class="noise">...-</span>lang-2.3<span class="noise">.jar</span> <span class="lighterInfo">(my dep)</span><br/>
+                        + <span class="noise">...-</span>io-2.3<span class="noise">.jar</span> <span class="lighterInfo">(my dep)</span><br/>
                         <img src="prize/correctAnswerGlyph.png"/></li>
-                    <li>lang-2.3 <span class="lighterInfo">(myproject dep)</span><br/>
-                        + io-2.4 <span class="lighterInfo">(parent dep)</span></li>
-                    <li>lang-2.4 <span class="lighterInfo">(parent depMan)</span><br/>
-                        + io-2.3 <span class="lighterInfo">(myproject dep)</span></li>
-                    <li>lang-2.4 <span class="lighterInfo">(parent depMan)</span><br/>
-                        + io-2.4 <span class="lighterInfo">(parent dep)</span></li>
+                    <li><span class="noise">...-</span>lang-2.3<span class="noise">.jar</span> <span class="lighterInfo">(my dep)</span><br/>
+                        + <span class="noise">...-</span>io-2.4<span class="noise">.jar</span> <span class="lighterInfo">(parent dep)</span></li>
+                    <li><span class="noise">...-</span>lang-2.4<span class="noise">.jar</span> <span class="lighterInfo">(parent depMan)</span><br/>
+                        + <span class="noise">...-</span>io-2.3<span class="noise">.jar</span> <span class="lighterInfo">(my dep)</span></li>
+                    <li><span class="noise">...-</span>lang-2.4<span class="noise">.jar</span> <span class="lighterInfo">(parent depMan)</span><br/>
+                        + <span class="noise">...-</span>io-2.4<span class="noise">.jar</span> <span class="lighterInfo">(parent dep)</span></li>
                     <li>Maven error</li>
                     <li class="idunnoAnswer">I don't know<br/>
                         <img src="prize/idunnoAnswerGlyph.png"/></li>

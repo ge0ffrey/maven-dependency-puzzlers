@@ -170,9 +170,15 @@ ul {
 
 .correctAnswer {
     font-weight: bold;
+    /*border: thin solid #4e9a06;*/
+    border: thin solid #8ae234;
+    padding: 2px 5px;
 }
 
 .idunnoAnswer {
+    /*border: thin solid #888a85;*/
+    border: thin solid #d3d7cf;
+    padding: 2px 5px;
 }
 
 ul ul {

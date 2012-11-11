@@ -2,6 +2,40 @@
 
 /* Copied from template.html everything between the first <style> */
 
+/*
+    Only use tango colors:
+
+    CHAMELEON_1: #8AE234
+    CHAMELEON_2: #73D216
+    CHAMELEON_3: #4E9A06
+    BUTTER_1: #FCE94F
+    BUTTER_2: #EDD400
+    BUTTER_3: #C4A000
+    SKY_BLUE_1: #729FCF
+    SKY_BLUE_2: #3465A4
+    SKY_BLUE_3: #204A87
+    CHOCOLATE_1: #E9B96E
+    CHOCOLATE_2: #C17D11
+    CHOCOLATE_3: #8F5902
+    PLUM_1: #AD7FA8
+    PLUM_2: #75507B
+    PLUM_3: #5C3566
+
+    SCARLET_1: #EF2929
+    SCARLET_2: #CC0000
+    SCARLET_3: #A40000
+    ORANGE_1: #FCAF3E
+    ORANGE_2: #F57900
+    ORANGE_3: #CE5C00
+
+    ALUMINIUM_1: #EEEEEC
+    ALUMINIUM_2: #D3D7CF
+    ALUMINIUM_3: #BABDB6
+    ALUMINIUM_4: #888A85
+    ALUMINIUM_5: #555753
+    ALUMINIUM_6: #2E3436
+*/
+
 html, .view body {
     background-color: white;
     counter-reset: slideidx;
@@ -96,6 +130,11 @@ p {
     font-size: smaller;
 }
 
+.noise {
+    color: #BABDB6;
+    font-size: smaller;
+}
+
 .codeXml {
     margin: 10px 20px;
     border: thin solid #BABDB6;
@@ -170,14 +209,12 @@ ul {
 
 .correctAnswer {
     font-weight: bold;
-    /*border: thin solid #4e9a06;*/
-    border: thin solid #8ae234;
+    border: thin solid #8AE234;
     padding: 2px 5px;
 }
 
 .idunnoAnswer {
-    /*border: thin solid #888a85;*/
-    border: thin solid #d3d7cf;
+    border: thin solid #D3D7CF;
     padding: 2px 5px;
 }
 

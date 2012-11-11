@@ -40,16 +40,16 @@
         <h3>Count your points</h3>
         <div>
             <div class="leftColumn">
-                <img src="Delirium_Tremens.jpg" style="float: left;" height="450px">
+                <img src="prize/Delirium_Tremens.jpg" style="float: left;" height="450px">
             </div>
             <div class="rightColumn">
                 <ul>
                     <li>Your answer is ...
                         <ul>
                             <li>correct: +3 points<br/>
-                                <img src="correctAnswerGlyph.png"/></li>
+                                <img src="prize/correctAnswerGlyph.png"/></li>
                             <li>I don't know: +1 point<br/>
-                                <img src="idunnoAnswerGlyph.png"/></li>
+                                <img src="prize/idunnoAnswerGlyph.png"/></li>
                             <li>wrong: +0 points</li>
                         </ul>
                     </li>
@@ -103,10 +103,10 @@ $ mvn assembly:single</pre>
         </h2>
     </section>
     <section>
-        <h3>Different groupId's</h3>
+        <h3>Different groupId</h3>
         <div>
             <div class="leftColumn">
-                <img src="legacyGroupIdDependencyTree.png"/>
+                <img src="different-groupId/legacyGroupIdDependencyTree.png"/>
             </div>
             <div class="rightColumn">
                 <pre class="codeXml">
@@ -130,10 +130,10 @@ $ mvn assembly:single</pre>
         </div>
     </section>
     <section>
-        <h3>Different groupId's</h3>
+        <h3>Different groupId</h3>
         <div>
             <div class="leftColumn">
-                <img src="legacyGroupIdDependencyTree.png"/>
+                <img src="different-groupId/legacyGroupIdDependencyTree.png"/>
             </div>
             <div class="rightColumn">
                 <p class="question">Which jars on the classpath?</p>
@@ -150,10 +150,10 @@ $ mvn assembly:single</pre>
         </div>
     </section>
     <section>
-        <h3>Answer different groupId's</h3>
+        <h3>Answer different groupId</h3>
         <div>
             <div class="leftColumn">
-                <img src="legacyGroupIdDependencyTree.png"/>
+                <img src="different-groupId/legacyGroupIdDependencyTree.png"/>
             </div>
             <div class="rightColumn">
                 <p class="question">Which jars on the classpath?</p>
@@ -162,17 +162,17 @@ $ mvn assembly:single</pre>
                     <li>javassist-3.16.1-GA.jar</li>
                     <li class="correctAnswer">javassist-3.12.1.GA.jar<br/>
                         + javassist-3.16.1-GA.jar<br/>
-                        <img src="correctAnswerGlyph.png"/></li>
+                        <img src="prize/correctAnswerGlyph.png"/></li>
                     <li>neither</li>
                     <li>Maven error</li>
                     <li class="idunnoAnswer">I don't know<br/>
-                        <img src="idunnoAnswerGlyph.png"/></li>
+                        <img src="prize/idunnoAnswerGlyph.png"/></li>
                 </ul>
             </div>
         </div>
     </section>
     <section>
-        <h3>Solution different groupId's</h3>
+        <h3>Solution different groupId</h3>
         <ul class="incremental">
             <li>Don't change your groupId's or artifactId's</li>
             <li>If you do change them,<br/>
@@ -201,7 +201,7 @@ $ mvn assembly:single</pre>
         <h3>meanwhile in Maven Central ...</h3>
         <h4>groupId's of Sun's JAXB implementation</h4>
         <figure>
-            <img src="changedGroupIdJaxbImplScreenshot.png"/>
+            <img src="different-groupId/changedGroupIdJaxbImplScreenshot.png"/>
             <p>Don't redistribute other project's artifacts under your groupId.</p>
         </figure>
     </section>
@@ -245,7 +245,7 @@ $ mvn assembly:single</pre>
         <h3>Dependency inheritance</h3>
         <div>
             <div class="leftColumn">
-                <img src="dependencyInheritanceDependencyTree.png"/>
+                <img src="dependency-inheritance/dependencyInheritanceDependencyTree.png"/>
             </div>
             <div class="rightColumn">
                 <pre class="codeXml">
@@ -287,7 +287,7 @@ $ mvn assembly:single</pre>
         <h3>Dependency inheritance</h3>
         <div>
             <div class="leftColumn">
-                <img src="dependencyInheritanceDependencyTree.png"/>
+                <img src="dependency-inheritance/dependencyInheritanceDependencyTree.png"/>
             </div>
             <div class="rightColumn">
                 <p class="question">Which jars on the classpath?</p>
@@ -310,14 +310,14 @@ $ mvn assembly:single</pre>
         <h3>Answer dependency inheritance</h3>
         <div>
             <div class="leftColumn">
-                <img src="dependencyInheritanceDependencyTreeAnswer.png"/>
+                <img src="dependency-inheritance/dependencyInheritanceDependencyTreeAnswer.png"/>
             </div>
             <div class="rightColumn">
                 <p class="question">Which jars on the classpath?</p>
                 <ul class="answers">
                     <li class="correctAnswer">lang-2.3 <span class="lighterInfo">(myproject dep)</span><br/>
                         + io-2.3 <span class="lighterInfo">(myproject dep)</span><br/>
-                        <img src="correctAnswerGlyph.png"/></li>
+                        <img src="prize/correctAnswerGlyph.png"/></li>
                     <li>lang-2.3 <span class="lighterInfo">(myproject dep)</span><br/>
                         + io-2.4 <span class="lighterInfo">(parent dep)</span></li>
                     <li>lang-2.4 <span class="lighterInfo">(parent depMan)</span><br/>
@@ -326,7 +326,7 @@ $ mvn assembly:single</pre>
                         + io-2.4 <span class="lighterInfo">(parent dep)</span></li>
                     <li>Maven error</li>
                     <li class="idunnoAnswer">I don't know<br/>
-                        <img src="idunnoAnswerGlyph.png"/></li>
+                        <img src="prize/idunnoAnswerGlyph.png"/></li>
                 </ul>
             </div>
         </div>
@@ -335,7 +335,7 @@ $ mvn assembly:single</pre>
         <h3>Solution dependency inheritance</h3>
         <div>
             <div class="leftColumn">
-                <img src="dependencyInheritanceDependencyTreeSolution.png"/>
+                <img src="dependency-inheritance/dependencyInheritanceDependencyTreeSolution.png"/>
             </div>
             <div class="rightColumn">
                 <pre class="codeXml">
@@ -384,7 +384,7 @@ $ mvn assembly:single</pre>
         <h3>Conflicting nephew</h3>
         <div>
             <div class="leftColumn">
-                <img src="conflictingNephewDependencyTree.png"/>
+                <img src="conflicting-nephew/conflictingNephewDependencyTree.png"/>
             </div>
             <div class="rightColumn">
                 <pre class="codeXml">
@@ -416,7 +416,7 @@ $ mvn assembly:single</pre>
         <h3>Conflicting nephew</h3>
         <div>
             <div class="leftColumn">
-                <img src="conflictingNephewDependencyTree.png"/>
+                <img src="conflicting-nephew/conflictingNephewDependencyTree.png"/>
             </div>
             <div class="rightColumn">
                 <p class="question">Which jars on the classpath?</p>
@@ -436,20 +436,20 @@ $ mvn assembly:single</pre>
         <h3>Answer conflicting nephew</h3>
         <div>
             <div class="leftColumn">
-                <img src="conflictingNephewDependencyTreeAnswer.png"/>
+                <img src="conflicting-nephew/conflictingNephewDependencyTreeAnswer.png"/>
             </div>
             <div class="rightColumn">
                 <p class="question">Which jars on the classpath?</p>
                 <ul class="answers">
                     <li class="correctAnswer">slf4j-api-1.5.0.jar<br/>
-                        <img src="correctAnswerGlyph.png"/></li>
+                        <img src="prize/correctAnswerGlyph.png"/></li>
                     <li>slf4j-api-1.7.0.jar</li>
                     <li>slf4j-api-1.5.0.jar<br/>
                         + slf4j-api-1.7.0.jar</li>
                     <li>neither</li>
                     <li>Maven error</li>
                     <li class="idunnoAnswer">I don't know<br/>
-                        <img src="idunnoAnswerGlyph.png"/></li>
+                        <img src="prize/idunnoAnswerGlyph.png"/></li>
                 </ul>
             </div>
         </div>
@@ -495,7 +495,7 @@ and
         <h3>Conflicting cousins</h3>
         <div>
             <div class="leftColumn">
-                <img src="conflictingCousinsDependencyTree.png"/>
+                <img src="conflicting-cousins/conflictingCousinsDependencyTree.png"/>
             </div>
             <div class="rightColumn">
                 <pre class="codeXml" style="font-size: 12px;">
@@ -537,7 +537,7 @@ and
         <h3>Conflicting cousins</h3>
         <div>
             <div class="leftColumn">
-                <img src="conflictingCousinsDependencyTree.png"/>
+                <img src="conflicting-cousins/conflictingCousinsDependencyTree.png"/>
             </div>
             <div class="rightColumn">
                 <p class="question">Which jars on the classpath?</p>
@@ -558,13 +558,13 @@ and
         <h3>Answer conflicting cousins</h3>
         <div>
             <div class="leftColumn">
-                <img src="conflictingCousinsDependencyTreeAnswer.png"/>
+                <img src="conflicting-cousins/conflictingCousinsDependencyTreeAnswer.png"/>
             </div>
             <div class="rightColumn">
                 <p class="question">Which jars on the classpath?</p>
                 <ul class="answers">
                     <li class="correctAnswer">drools-core-5.2.0.CR1.jar<br/>
-                        <img src="correctAnswerGlyph.png"/></li>
+                        <img src="prize/correctAnswerGlyph.png"/></li>
                     <li>drools-core-5.2.0.M2.jar</li>
                     <li>drools-core-5.2.0.Final.jar</li>
                     <li>drools-core-5.2.0.CR1.jar<br/>
@@ -572,7 +572,7 @@ and
                         + drools-core-5.2.0.Final.jar</li>
                     <li>Maven error</li>
                     <li class="idunnoAnswer">I don't know<br/>
-                        <img src="idunnoAnswerGlyph.png"/></li>
+                        <img src="prize/idunnoAnswerGlyph.png"/></li>
                 </ul>
                 <p class="smaller-p-text">
                     Later releases (5.3, 5.4, 5.5, ...)<br/>
@@ -620,7 +620,7 @@ and
             </li>
             <li><i>"Comparing financial stocks is hard</br>
                 so I'll just buy the first one in the list."</i></li>
-            <li style="list-style:none;"><figure><img src="wat.jpeg" height="200px"/></figure></li>
+            <li style="list-style:none;"><figure><img src="conflicting-cousins/wat.jpeg" height="200px"/></figure></li>
         </ul>
     </section>
     <section>
@@ -651,7 +651,7 @@ and
         <h3>Child with dependencyManagement</h3>
         <div>
             <div class="leftColumn">
-                <img src="childWithDependencyManagementDependencyTree.png"/>
+                <img src="child-with-dependencyManagement/childWithDependencyManagementDependencyTree.png"/>
             </div>
             <div class="rightColumn">
                 <pre class="codeXml" style="font-size: 12px;">
@@ -693,7 +693,7 @@ and
         <h3>Child with dependencyManagement</h3>
         <div>
             <div class="leftColumn">
-                <img src="childWithDependencyManagementDependencyTree.png"/>
+                <img src="child-with-dependencyManagement/childWithDependencyManagementDependencyTree.png"/>
             </div>
             <div class="rightColumn">
                 <p class="question">Which jars on the classpath?</p>
@@ -712,19 +712,19 @@ and
         <h3>Child with dependencyManagement</h3>
         <div>
             <div class="leftColumn">
-                <img src="childWithDependencyManagementDependencyTreeAnswer.png"/>
+                <img src="child-with-dependencyManagement/childWithDependencyManagementDependencyTreeAnswer.png"/>
             </div>
             <div class="rightColumn">
                 <p class="question">Which jars on the classpath?</p>
                 <ul class="answers">
                     <li class="correctAnswer">jbpm-flow-5.1.0.Final.jar<br/>
-                        <img src="correctAnswerGlyph.png"/></li>
+                        <img src="prize/correctAnswerGlyph.png"/></li>
                     <li>jbpm-flow-5.3.0.Final.jar</li>
                     <li>jbpm-flow-5.1.0.Final.jar<br/>
                         + jbpm-flow-5.3.0.Final.jar</li>
                     <li>Maven error</li>
                     <li class="idunnoAnswer">I don't know<br/>
-                        <img src="idunnoAnswerGlyph.png"/></li>
+                        <img src="prize/idunnoAnswerGlyph.png"/></li>
                 </ul>
             </div>
         </div>
@@ -732,7 +732,7 @@ and
     <section>
         <h3>myproject versus yourproject</h3>
         <figure>
-            <img src="childWithDependencyManagementAssemblyScreenshot.png"/>
+            <img src="child-with-dependencyManagement/childWithDependencyManagementAssemblyScreenshot.png"/>
             <p>
                 myproject depends on yourproject<br/>
                 but ends up with a different jbpm-flow version
@@ -752,7 +752,7 @@ and
         <h3>Fat jars</h3>
         <div>
             <div class="leftColumn">
-                <img src="fatJarDependencyTree.png"/>
+                <img src="fat-jar/fatJarDependencyTree.png"/>
             </div>
             <div class="rightColumn">
                 <pre class="codeXml">
@@ -786,7 +786,7 @@ and
         <h3>Fat jars</h3>
         <div>
             <div class="leftColumn">
-                <img src="fatJarDependencyTree.png"/>
+                <img src="fat-jar/fatJarDependencyTree.png"/>
             </div>
             <div class="rightColumn">
                 <p class="question">Which jars on the classpath?</p>
@@ -807,7 +807,7 @@ and
         <h3>Answer fat jars</h3>
         <div>
             <div class="leftColumn">
-                <img src="fatJarDependencyTree.png"/>
+                <img src="fat-jar/fatJarDependencyTree.png"/>
             </div>
             <div class="rightColumn">
                 <p class="question">Which jars on the classpath?</p>
@@ -818,10 +818,10 @@ and
                     <li class="correctAnswer">weld-se-core-1.1.8.Final.jar<br/>
                         + slf4j-api-1.6.1.jar<br/>
                         + weld-se-1.1.4.Final.jar<br/>
-                        <img src="correctAnswerGlyph.png"/></li>
+                        <img src="prize/correctAnswerGlyph.png"/></li>
                     <li>Maven error</li>
                     <li class="idunnoAnswer">I don't know<br/>
-                        <img src="idunnoAnswerGlyph.png"/></li>
+                        <img src="prize/idunnoAnswerGlyph.png"/></li>
                 </ul>
             </div>
         </div>
@@ -847,7 +847,7 @@ and
         <h3>Shaded fat jars</h3>
         <div>
             <div class="leftColumn">
-                <img src="shadedFatJarDependencyTreeProblem.png"/>
+                <img src="fat-jar/shadedFatJarDependencyTreeProblem.png"/>
             </div>
             <div class="rightColumn">
                 <ul>
@@ -882,7 +882,7 @@ and
             <li>What your seat number?<br/>
                 Look behind your right shoulder
                 <figure>
-                    <img src="winningSeat.png" height="200px"/>
+                    <img src="prize/winningSeat.png" height="200px"/>
                 </figure>
             </li>
             <li>Winner = highest points + <b>seat 12</b><br/>

@@ -46,8 +46,10 @@
                 <ul>
                     <li>Your answer is ...
                         <ul>
-                            <li>correct: +3 points</li>
-                            <li>I don't know: +1 point</li>
+                            <li>correct: +3 points<br/>
+                                <img src="correctAnswerGlyph.png"/></li>
+                            <li>I don't know: +1 point<br/>
+                                <img src="idunnoAnswerGlyph.png"/></li>
                             <li>wrong: +0 points</li>
                         </ul>
                     </li>
@@ -160,11 +162,11 @@ $ mvn assembly:single</pre>
                     <li>javassist-3.16.1-GA.jar</li>
                     <li class="correctAnswer">javassist-3.12.1.GA.jar<br/>
                         + javassist-3.16.1-GA.jar<br/>
-                        (+3 points)</li>
+                        <img src="correctAnswerGlyph.png"/></li>
                     <li>neither</li>
                     <li>Maven error</li>
-                    <li>I don't know<br/>
-                        (+1 point)</li>
+                    <li class="idunnoAnswer">I don't know<br/>
+                        <img src="idunnoAnswerGlyph.png"/></li>
                 </ul>
             </div>
         </div>
@@ -315,7 +317,7 @@ $ mvn assembly:single</pre>
                 <ul class="answers">
                     <li class="correctAnswer">lang-2.3 <span class="lighterInfo">(myproject dep)</span><br/>
                         + io-2.3 <span class="lighterInfo">(myproject dep)</span><br/>
-                        (+3 points)</li>
+                        <img src="correctAnswerGlyph.png"/></li>
                     <li>lang-2.3 <span class="lighterInfo">(myproject dep)</span><br/>
                         + io-2.4 <span class="lighterInfo">(parent dep)</span></li>
                     <li>lang-2.4 <span class="lighterInfo">(parent depMan)</span><br/>
@@ -323,8 +325,8 @@ $ mvn assembly:single</pre>
                     <li>lang-2.4 <span class="lighterInfo">(parent depMan)</span><br/>
                         + io-2.4 <span class="lighterInfo">(parent dep)</span></li>
                     <li>Maven error</li>
-                    <li>I don't know<br/>
-                        (+1 point)</li>
+                    <li class="idunnoAnswer">I don't know<br/>
+                        <img src="idunnoAnswerGlyph.png"/></li>
                 </ul>
             </div>
         </div>
@@ -440,14 +442,14 @@ $ mvn assembly:single</pre>
                 <p class="question">Which jars on the classpath?</p>
                 <ul class="answers">
                     <li class="correctAnswer">slf4j-api-1.5.0.jar<br/>
-                        (+3 points)</li>
+                        <img src="correctAnswerGlyph.png"/></li>
                     <li>slf4j-api-1.7.0.jar</li>
                     <li>slf4j-api-1.5.0.jar<br/>
                         + slf4j-api-1.7.0.jar</li>
                     <li>neither</li>
                     <li>Maven error</li>
-                    <li>I don't know<br/>
-                        (+1 point)</li>
+                    <li class="idunnoAnswer">I don't know<br/>
+                        <img src="idunnoAnswerGlyph.png"/></li>
                 </ul>
             </div>
         </div>
@@ -562,15 +564,15 @@ and
                 <p class="question">Which jars on the classpath?</p>
                 <ul class="answers">
                     <li class="correctAnswer">drools-core-5.2.0.CR1.jar<br/>
-                        (+3 points)</li>
+                        <img src="correctAnswerGlyph.png"/></li>
                     <li>drools-core-5.2.0.M2.jar</li>
                     <li>drools-core-5.2.0.Final.jar</li>
                     <li>drools-core-5.2.0.CR1.jar<br/>
                         + drools-core-5.2.0.M2.jar<br/>
                         + drools-core-5.2.0.Final.jar</li>
                     <li>Maven error</li>
-                    <li>I don't know<br/>
-                        (+1 point)</li>
+                    <li class="idunnoAnswer">I don't know<br/>
+                        <img src="idunnoAnswerGlyph.png"/></li>
                 </ul>
                 <p class="smaller-p-text">
                     Later releases (5.3, 5.4, 5.5, ...)<br/>
@@ -716,13 +718,13 @@ and
                 <p class="question">Which jars on the classpath?</p>
                 <ul class="answers">
                     <li class="correctAnswer">jbpm-flow-5.1.0.Final.jar<br/>
-                        (+3 points)</li>
+                        <img src="correctAnswerGlyph.png"/></li>
                     <li>jbpm-flow-5.3.0.Final.jar</li>
                     <li>jbpm-flow-5.1.0.Final.jar<br/>
                         + jbpm-flow-5.3.0.Final.jar</li>
                     <li>Maven error</li>
-                    <li>I don't know<br/>
-                        (+1 point)</li>
+                    <li class="idunnoAnswer">I don't know<br/>
+                        <img src="idunnoAnswerGlyph.png"/></li>
                 </ul>
             </div>
         </div>
@@ -816,10 +818,10 @@ and
                     <li class="correctAnswer">weld-se-core-1.1.8.Final.jar<br/>
                         + slf4j-api-1.6.1.jar<br/>
                         + weld-se-1.1.4.Final.jar<br/>
-                        (+3 points)</li>
+                        <img src="correctAnswerGlyph.png"/></li>
                     <li>Maven error</li>
-                    <li>I don't know<br/>
-                        (+1 point)</li>
+                    <li class="idunnoAnswer">I don't know<br/>
+                        <img src="idunnoAnswerGlyph.png"/></li>
                 </ul>
             </div>
         </div>

@@ -177,6 +177,32 @@ $ mvn assembly:single</pre>
         </div>
     </section>
     <section>
+        <h3>Workaround different groupId's</h3>
+        <p>Exclude wrong groupId's and artifactId's</p>
+        <pre class="codeXml">
+&lt;dependencies&gt;
+  &lt;dependency&gt;
+    ...
+    <b>&lt;exclusions&gt;
+      &lt;exclusion&gt;
+        &lt;groupId&gt;javassist&lt;/groupId&gt;
+        &lt;artifactId&gt;javassist&lt;/artifactId&gt;
+      &lt;/exclusion&gt;
+    &lt;/exclusions&gt;</b>
+  &lt;/dependency&gt;
+  &lt;dependency&gt;
+    &lt;groupId&gt;org.javassist&lt;/groupId&gt;
+    &lt;artifactId&gt;javassist&lt;/artifactId&gt;
+    &lt;version&gt;3.16.1-GA&lt;/version&gt;
+  &lt;/dependency&gt;
+&lt;/dependencies&gt;</pre>
+        <p>When in doubt, prefer the GAV with</p>
+        <ul>
+            <li>the highest version</li>
+            <li>the most recent versions</li>
+        </ul>
+    </section>
+    <section>
         <h3>Solution different groupId</h3>
         <ul class="incremental">
             <li>Don't change your groupId's or artifactId's</li>
@@ -209,33 +235,6 @@ $ mvn assembly:single</pre>
             <img src="different-groupId/changedGroupIdJaxbImplScreenshot.png"/>
             <p>Don't redistribute other project's artifacts under your groupId.</p>
         </figure>
-    </section>
-    <section>
-        <h3>Workaround different groupId's</h3>
-        <p>Exclude wrong groupId's and artifactId's</p>
-        <pre class="codeXml">
-&lt;dependencies&gt;
-  &lt;dependency&gt;
-    ...
-    <b>&lt;exclusions&gt;
-      &lt;exclusion&gt;
-        &lt;!-- javax.xml is wrong, com.sun.xml.bind is correct --&gt;
-        &lt;groupId&gt;javax.xml&lt;/groupId&gt;
-        &lt;artifactId&gt;jaxb-impl&lt;/artifactId&gt;
-      &lt;/exclusion&gt;
-    &lt;/exclusions&gt;</b>
-  &lt;/dependency&gt;
-  &lt;dependency&gt;
-    &lt;groupId&gt;com.sun.xml.bind&lt;/groupId&gt;
-    &lt;artifactId&gt;jaxb-impl&lt;/artifactId&gt;
-    &lt;version&gt;2.2.6&lt;/version&gt;
-  &lt;/dependency&gt;
-&lt;/dependencies&gt;</pre>
-        <p>When in doubt, prefer the GAV with</p>
-        <ul>
-            <li>the highest version</li>
-            <li>the most recent versions</li>
-        </ul>
     </section>
 
     <section>
@@ -747,6 +746,7 @@ and
         </figure>
     </section>
 
+    <!--
     <section>
         <h2>
             <br/>
@@ -877,6 +877,7 @@ and
             </div>
         </div>
     </section>
+    -->
 
     <section>
         <h3>And the winner is ...</h3>

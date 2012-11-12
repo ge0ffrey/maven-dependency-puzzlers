@@ -196,10 +196,10 @@ $ mvn assembly:single</pre>
   ...
 &lt;/dependencies&gt;</pre>
             </li>
-            <li>When in doubt
+            <li>Which GAV to choose?
                 <ul>
                     <li>Search <a href="http://search.maven.org/">http://search.maven.org/</a></li>
-                    <li>Prefer GAV with most recent versions</li>
+                    <li>GAV with most recent versions</li>
                 </ul>
             </li>
         </ul>
@@ -632,15 +632,11 @@ and
                 it picks <b><i>the nearest</i></b><br/>
                 (= highest level, first index)
             </li>
-            <li><i>"Comparing cars is hard<br/>
-                so just buy the nearest to the entrance..."</i></li>
-            <li style="list-style:none;"><figure><img src="conflicting-cousins/wat.jpeg" height="200px"/></figure></li>
         </ul>
     </section>
     <section>
         <h3>Conflict resolution in practice ...</h3>
         <ul>
-            <li>2 conflicting jars in 1 classpath = trouble</li>
             <li>Good jars are backwards compatible</li>
         </ul>
         <p>

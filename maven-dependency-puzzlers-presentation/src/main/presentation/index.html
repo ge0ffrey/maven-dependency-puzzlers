@@ -178,7 +178,10 @@ $ mvn assembly:single</pre>
     </section>
     <section>
         <h3>Workaround different groupId's</h3>
-        <p>Exclude wrong groupId's and artifactId's</p>
+        <p>Ban outdated GAVs (groupId - artifactId)</p>
+        <ul>
+            <li>Don't depend on them</li>
+            <li>Exclude them
         <pre class="codeXml">
 &lt;dependencies&gt;
   &lt;dependency&gt;
@@ -190,16 +193,15 @@ $ mvn assembly:single</pre>
       &lt;/exclusion&gt;
     &lt;/exclusions&gt;</b>
   &lt;/dependency&gt;
-  &lt;dependency&gt;
-    &lt;groupId&gt;org.javassist&lt;/groupId&gt;
-    &lt;artifactId&gt;javassist&lt;/artifactId&gt;
-    &lt;version&gt;3.16.1-GA&lt;/version&gt;
-  &lt;/dependency&gt;
+  ...
 &lt;/dependencies&gt;</pre>
-        <p>When in doubt, prefer the GAV with</p>
-        <ul>
-            <li>the highest version</li>
-            <li>the most recent versions</li>
+            </li>
+            <li>When in doubt
+                <ul>
+                    <li>Search <a href="http://search.maven.org/">http://search.maven.org/</a></li>
+                    <li>Prefer GAV with most recent versions</li>
+                </ul>
+            </li>
         </ul>
     </section>
     <section>

@@ -13,7 +13,7 @@
    height="500"
    id="svg2"
    version="1.1"
-   inkscape:version="0.48.3.1 r9886"
+   inkscape:version="0.48.1 r9760"
    sodipodi:docname="childWithDependencyManagementDependencyTreeAnswer.svg"
    inkscape:export-filename="childWithDependencyManagementDependencyTreeAnswer.png"
    inkscape:export-xdpi="90"
@@ -247,17 +247,17 @@
      inkscape:pageshadow="2"
      inkscape:zoom="1.578"
      inkscape:cx="200"
-     inkscape:cy="224.65146"
+     inkscape:cy="-28.833965"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
      width="800px"
      borderlayer="true"
      gridtolerance="10"
-     inkscape:window-width="1680"
-     inkscape:window-height="991"
+     inkscape:window-width="1024"
+     inkscape:window-height="710"
      inkscape:window-x="0"
-     inkscape:window-y="27"
+     inkscape:window-y="26"
      inkscape:window-maximized="1"
      inkscape:snap-grids="true"
      inkscape:snap-bbox="false"
@@ -726,6 +726,6 @@
            x="187.33418"
            y="60.446335"
            style="font-size:12.0707407px;text-align:start;text-anchor:start;fill:#a40000" /></flowRegion><flowPara
-         id="flowPara3105">No idea why this happens:</flowPara><flowPara
-         id="flowPara3144">yourproject does get 5.3.0.Final</flowPara></flowRoot>  </g>
+         id="flowPara3144">yourproject does get 5.3.0.Final</flowPara><flowPara
+         id="flowPara3134">but myproject gets 5.1.0.Final</flowPara></flowRoot>  </g>
 </svg>

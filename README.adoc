@@ -1,0 +1,3 @@
+= Slides
+
+https://ge0ffrey.github.io/maven-dependency-puzzlers[See the slides]
